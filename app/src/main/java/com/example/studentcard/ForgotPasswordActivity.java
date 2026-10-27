@@ -27,11 +27,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             String email = etForgotEmail.getText() != null ? etForgotEmail.getText().toString().trim() : "";
 
             if (email.isEmpty()) {
-                Toast.makeText(this, "Please enter your Email or Student ID", Toast.LENGTH_SHORT).show();
+                etForgotEmail.setError("Please enter your registered email address");
+                etForgotEmail.requestFocus();
+                Toast.makeText(this, "Please enter your registered email address", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etForgotEmail.setError("Please enter a valid email address");
+                etForgotEmail.requestFocus();
                 Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
                 return;
             }

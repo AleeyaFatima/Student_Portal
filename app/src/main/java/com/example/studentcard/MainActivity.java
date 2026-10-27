@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            // Verify credentials for Aleeya Fatima (accepts Aleeya Fatima or Aliya Fatima)
-            if ((username.equalsIgnoreCase("Aleeya Fatima") || username.equalsIgnoreCase("Aliya Fatima"))
+            // Verify credentials for Aleeya Fatima (accepts Aleeya Fatima, Aliya Fatima, or Student ID)
+            if ((username.equalsIgnoreCase("Aleeya Fatima") || username.equalsIgnoreCase("Aliya Fatima") || username.equals("24108108"))
                     && (password.equals("aleeya27") || password.equals("aliya27"))) {
                 Toast.makeText(MainActivity.this, "Login Successful! Welcome Aleeya Fatima", Toast.LENGTH_SHORT).show();
 

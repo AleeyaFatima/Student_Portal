@@ -37,22 +37,28 @@ public class RegisterActivity extends AppCompatActivity {
             String password = etRegPassword.getText() != null ? etRegPassword.getText().toString().trim() : "";
             String confirmPass = etConfirmPassword.getText() != null ? etConfirmPassword.getText().toString().trim() : "";
 
-            if (name.isEmpty() || studentId.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            if (name.isEmpty() || studentId.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPass.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etEmail.setError("Please enter a valid email address");
+                etEmail.requestFocus();
                 Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (password.length() < 6) {
-                Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            if (password.length() < 8) {
+                etRegPassword.setError("Password must be at least 8 characters");
+                etRegPassword.requestFocus();
+                Toast.makeText(this, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (!password.equals(confirmPass)) {
+                etConfirmPassword.setError("Passwords do not match");
+                etConfirmPassword.requestFocus();
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 return;
             }
